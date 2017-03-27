@@ -44,7 +44,7 @@ RCT_EXPORT_MODULE();
         UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         
-        blurredScreenImageView.image = [viewImage applyLightEffect];
+        blurredScreenImageView.image = [viewImage applyDarkEffect];
         
         self->obfuscatingView = blurredScreenImageView;
         [[UIApplication sharedApplication].keyWindow addSubview:self->obfuscatingView];
@@ -54,7 +54,7 @@ RCT_EXPORT_MODULE();
 
 - (void)handleAppStateActive {
     if  (self->obfuscatingView) {
-        [UIView animateWithDuration: 0.3
+        [UIView animateWithDuration: 0.1
                          animations: ^ {
                              self->obfuscatingView.alpha = 0;
                          }

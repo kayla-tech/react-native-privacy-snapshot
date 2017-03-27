@@ -6,7 +6,7 @@
 //  Copyright © 2015 Kayla Technologies. All rights reserved.
 //
 
-#import <RCTBridge.h>
+#import <React/RCTBridge.h>
 
 @interface RCTPrivacySnapshot : NSObject <RCTBridgeModule>
 
