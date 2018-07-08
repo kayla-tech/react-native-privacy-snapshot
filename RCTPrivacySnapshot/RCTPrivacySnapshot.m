@@ -32,6 +32,11 @@ RCT_EXPORT_MODULE();
     return self;
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 #pragma mark - App Notification Methods
 
 - (void)handleAppStateResignActive {
