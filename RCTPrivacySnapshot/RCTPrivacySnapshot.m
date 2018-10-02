@@ -72,4 +72,8 @@ RCT_EXPORT_METHOD(enabled:(BOOL) _enable) {
     self->enabled = _enable;
 }
 
++ (BOOL)requiresMainQueueSetup {
+    return YES;
+}
+
 @end
