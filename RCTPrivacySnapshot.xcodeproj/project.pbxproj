@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DB1744391BC4C14D00D02B05 /* RCTPrivacySnapshot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = DB1744381BC4C14D00D02B05 /* RCTPrivacySnapshot.h */; };
 		DB17443B1BC4C14D00D02B05 /* RCTPrivacySnapshot.m in Sources */ = {isa = PBXBuildFile; fileRef = DB17443A1BC4C14D00D02B05 /* RCTPrivacySnapshot.m */; };
-		DB1744621BC4CE7C00D02B05 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1744611BC4CE7C00D02B05 /* UIImage+ImageEffects.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,8 +28,6 @@
 		DB1744351BC4C14D00D02B05 /* libRCTPrivacySnapshot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRCTPrivacySnapshot.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB1744381BC4C14D00D02B05 /* RCTPrivacySnapshot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTPrivacySnapshot.h; sourceTree = "<group>"; };
 		DB17443A1BC4C14D00D02B05 /* RCTPrivacySnapshot.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTPrivacySnapshot.m; sourceTree = "<group>"; };
-		DB1744601BC4CE7C00D02B05 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
-		DB1744611BC4CE7C00D02B05 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +62,6 @@
 			children = (
 				DB1744381BC4C14D00D02B05 /* RCTPrivacySnapshot.h */,
 				DB17443A1BC4C14D00D02B05 /* RCTPrivacySnapshot.m */,
-				DB1744601BC4CE7C00D02B05 /* UIImage+ImageEffects.h */,
-				DB1744611BC4CE7C00D02B05 /* UIImage+ImageEffects.m */,
 			);
 			path = RCTPrivacySnapshot;
 			sourceTree = "<group>";
@@ -127,7 +122,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB1744621BC4CE7C00D02B05 /* UIImage+ImageEffects.m in Sources */,
 				DB17443B1BC4C14D00D02B05 /* RCTPrivacySnapshot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
