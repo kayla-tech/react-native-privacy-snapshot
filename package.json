@@ -5,8 +5,9 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:kayla-tech/react-native-privacy-snapshot.git"
+    "url": "https://github.com/kayla-tech/react-native-privacy-snapshot"
   },
+  "homepage": "https://github.com/kayla-tech/react-native-privacy-snapshot",
   "keywords": [
     "react-native",
     "react-component",
