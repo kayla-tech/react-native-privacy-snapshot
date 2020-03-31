@@ -1,5 +1,7 @@
-let React = require('react-native');
-let { NativeModules } = React;
+import { NativeModules, Platform } from "react-native";
 let { PrivacySnapshot } = NativeModules;
-
-module.exports = PrivacySnapshot;
+const show = () => Platform.OS === "ios" && PrivacySnapshot._show(true);
+const hide = () => Platform.OS === "ios" && PrivacySnapshot._show(false);
+const enabled = enable =>
+  Platform.OS === "ios" && PrivacySnapshot.enabled(enable);
+export { show, hide, enabled };
