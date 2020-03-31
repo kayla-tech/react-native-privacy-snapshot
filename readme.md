@@ -17,23 +17,72 @@ This react-native module obscure passwords and other sensitive personal informat
 ## Installation iOS
 
 1. Run `npm install react-native-privacy-snapshot --save` in your project directory
-1. Open your project in XCode, right click on `Libraries` and click `Add Files to "Your Project Name"`
-1. Within `node_modules`, find `react-native-privacy-snapshot` and add RCTPrivacySnapshot.xcodeproj to your project.
-1. Add `libRTCPrivacySnapshot.a` to `Build Phases -> Link Binary With Libraries`
+1. Run `(cd ios && pod install)` to trigger react-native autolinking
 
-## Usage
+## Easy Usage
 
-``` javascript
-let PrivacySnapshot = require('react-native-privacy-snapshot');
+```javascript
+import { usePrivacySnapshot} from 'react-native-privacy-snapshot';
 
 ...
 
-  componentWillMount() {
-    PrivacySnapshot.enabled(true);
-  },
+  usePrivacySnapshot()
 
-  componentWillUnmount() {
-    PrivacySnapshot.enabled(false);
-  },
 
+```
+
+## API
+
+The following functions are exported:
+
+### usePrivacySnapshot
+
+Hook to apply the privacy snapshot when app goes to background. This will apply as long as this component is mounted
+
+#### Usage
+
+```js
+import { usePrivacySnapshot } from "react-native-privacy-snapshot";
+
+const MyComponent = () => {
+  usePrivacySnapshot();
+  return <View>...</View>;
+};
+```
+
+### enabled(doEnable: boolean)
+
+Enable the privacy screen to trigger when app goes to background.
+
+#### Usage
+
+```js
+import { enabled } from "react-native-privacy-snapshot";
+enabled(true);
+//Later...
+enabled(false);
+```
+
+### show
+
+Show the privacy screen right now
+
+#### Usage
+
+```js
+import { show } from "react-native-privacy-snapshot";
+show();
+```
+
+### show
+
+Hide the privacy screen right now
+
+#### Usage
+
+```js
+import { show, hide } from "react-native-privacy-snapshot";
+show();
+//Later
+hide();
 ```
