@@ -7,11 +7,10 @@
 //
 
 #import "RCTPrivacySnapshot.h"
-#import "UIImage+ImageEffects.h"
 
 @implementation RCTPrivacySnapshot {
     BOOL enabled;
-    UIImageView *obfuscatingView;
+    UIVisualEffectView *obfuscatingView;
 }
 
 RCT_EXPORT_MODULE();
@@ -36,21 +35,19 @@ RCT_EXPORT_MODULE();
 
 - (void)handleAppStateResignActive {
     if (self->enabled) {
-        UIWindow    *keyWindow = [UIApplication sharedApplication].keyWindow;
-        UIImageView *blurredScreenImageView = [[UIImageView alloc] initWithFrame:keyWindow.bounds];
-        
-        UIGraphicsBeginImageContext(keyWindow.bounds.size);
-        [keyWindow drawViewHierarchyInRect:keyWindow.frame afterScreenUpdates:NO];
-        UIImage *viewImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        
-        blurredScreenImageView.image = [viewImage applyLightEffect];
-        
-        self->obfuscatingView = blurredScreenImageView;
-        [[UIApplication sharedApplication].keyWindow addSubview:self->obfuscatingView];
-
+        [self show];
     }
 }
+-(void)show {
+    UIWindow *keyWindow = [UIApplication sharedApplication].keyWindow;
+    UIVisualEffectView *view = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    view.frame = keyWindow.bounds;
+    self->obfuscatingView = view;
+
+    [[UIApplication sharedApplication].keyWindow addSubview:self->obfuscatingView];
+
+}
+
 
 - (void)handleAppStateActive {
     if  (self->obfuscatingView) {
@@ -70,6 +67,18 @@ RCT_EXPORT_MODULE();
 
 RCT_EXPORT_METHOD(enabled:(BOOL) _enable) {
     self->enabled = _enable;
+}
+RCT_EXPORT_METHOD(_show:(BOOL) _doShow) {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(_doShow) {
+            [self show];
+        } else {
+            [self handleAppStateActive];
+        }
+    });
+}
++ (BOOL)requiresMainQueueSetup {
+    return YES;
 }
 
 @end
